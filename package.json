@@ -1,0 +1,30 @@
+{
+  "name": "pm2-slack-driver",
+  "preferGlobal": "true",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "pm2s": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/s0ph1e/pm2-slack-driver.git"
+  },
+  "keywords": [
+    "pm2",
+    "slack",
+    "driver"
+  ],
+  "author": "s0ph1e",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/s0ph1e/pm2-slack-driver/issues"
+  },
+  "homepage": "https://github.com/s0ph1e/pm2-slack-driver#readme",
+  "dependencies": {
+    "pm2": "^0.12.15"
+  }
+}
