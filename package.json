@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/s0ph1e/pm2-slack-driver#readme",
   "dependencies": {
+    "commander": "^2.8.1",
     "pm2": "^0.12.15"
   }
 }
