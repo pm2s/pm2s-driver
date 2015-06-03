@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var actions = require('./actions');
+var actions = require('./daemon');
 
 program.version('0.0.1');
 

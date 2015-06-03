@@ -1,7 +1,10 @@
 var axon  = require('pm2-axon');
 var sub = axon.socket('sub-emitter');
 
+// TODO: write log to file
+
 function start() {
+	console.log('started');
 	// TODO: copy resolving pm2 socket path from https://github.com/Unitech/PM2/blob/master/constants.js
 	var socketPath = '/home/vagrant/.pm2/pub.sock';
 	sub.connect(socketPath); // [socket path] is '~/.pm2/pub.sock' by default.
@@ -13,9 +16,4 @@ function start() {
 	});
 }
 
-function stop() {}
-
-module.exports = {
-	start: start,
-	stop: stop
-};
+start();
