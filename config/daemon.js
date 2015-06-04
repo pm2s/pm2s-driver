@@ -1,5 +1,12 @@
+var p = require('path');
+var main = require('./main');
+
+var name = main.name;
+var worker = p.resolve(__dirname, '../src/worker.js');
+var pidfile = p.resolve(main.rootPath, main.name + '.pid');
+
 module.exports = {
-	name: 'pm2s',
-	main: __dirname + '/../src/worker.js',
-	pidfile: '/home/vagrant/pm2s.pid'	// TODO: change pidfile
+	name: name,
+	main: worker,
+	pidfile: pidfile
 };
