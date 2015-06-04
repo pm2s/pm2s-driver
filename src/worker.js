@@ -1,6 +1,8 @@
 var axon  = require('pm2-axon');
 var sub = axon.socket('sub-emitter');
 
+var pm2 = require('../config/pm2');
+
 var notify = require('./notify');
 
 function sendNotification(e, d) {
@@ -10,9 +12,7 @@ function sendNotification(e, d) {
 }
 
 function start() {
-	// TODO: copy resolving pm2 socket path from https://github.com/Unitech/PM2/blob/master/constants.js
-	var socketPath = '/home/vagrant/.pm2/pub.sock';
-	sub.connect(socketPath); // [socket path] is '~/.pm2/pub.sock' by default.
+	sub.connect(pm2.pubSocket);
 	sub.on('*', sendNotification);
 }
 
