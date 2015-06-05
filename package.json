@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "pms": "./bin/index.js"
+    "pms": "./bin/pms"
   },
   "repository": {
     "type": "git",

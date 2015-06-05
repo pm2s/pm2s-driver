@@ -2,12 +2,13 @@ var p = require('path');
 var fs = require('fs');
 
 var name = 'pms';
+var dirname = '.pms';
 var rootPath;
 
 if (process.env.HOME || process.env.HOMEPATH) {
-	rootPath = p.resolve(process.env.HOME || process.env.HOMEPATH, '.' + name);
+	rootPath = p.resolve(process.env.HOME || process.env.HOMEPATH, dirname);
 } else {
-	rootPath = p.resolve('/etc', '.' + name);
+	rootPath = p.resolve('/etc', dirname);
 }
 
 // TODO: move to right place?
