@@ -9,7 +9,14 @@ function stop() {
 	daemon.stop();
 }
 
+function restart() {
+	daemon.stop(function () {
+		daemon.start();
+	});
+}
+
 module.exports = {
 	start: start,
-	stop: stop
+	stop: stop,
+	restart: restart
 };

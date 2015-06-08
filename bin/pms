@@ -15,6 +15,11 @@ program
 	.description('stop tracking PM2 events')
 	.action(actions.stop);
 
+program
+	.command('restart')
+	.description('restart daemon')
+	.action(actions.restart);
+
 program.parse(process.argv);
 
 // display help by default (if no command was provided)
