@@ -20,9 +20,12 @@ program
 	.description('restart daemon')
 	.action(actions.restart);
 
-program.parse(process.argv);
+// if command was not found
+program.on('*', program.help);
 
-// display help by default (if no command was provided)
+// if no command was provided
 if (!process.argv.slice(2).length) {
 	program.help();
 }
+
+program.parse(process.argv);
