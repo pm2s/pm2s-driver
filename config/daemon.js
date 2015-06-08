@@ -1,5 +1,5 @@
 var p = require('path');
-var main = require('./main');
+var main = require('./fs');
 
 var name = main.name;
 var worker = p.resolve(__dirname, '../src/worker.js');
