@@ -1,24 +1,8 @@
-var fs = require('fs');
-var p = require('path');
-var http = require('http');
 var _ = require('lodash');
+var http = require('http');
 
 var serverConfig = require('../config/server');
-var fsConfig = require('../config/fs');
-
-var logStream = openLog(fsConfig.logPath);
-
-function openLog(logfile) {
-	return fs.createWriteStream(logfile, {
-		flags: 'a',
-		encoding: 'utf8',
-		mode: 0644
-	});
-}
-
-function log(msg) {
-	logStream.write(msg + '\n');
-}
+var log = require('./utils/log');
 
 function notify(msg) {
 	var data = JSON.stringify({ data: msg });
@@ -30,10 +14,7 @@ function notify(msg) {
 		}
 	});
 
-	var req = http.request(reqOptions, function(res) {
-		// TODO: remove logging
-		log(res.statusCode + ' ' + data);
-	});
+	var req = http.request(reqOptions);
 
 	req.on('error', function(e) {
 		log(e);

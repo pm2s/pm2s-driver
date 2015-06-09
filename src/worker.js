@@ -5,15 +5,18 @@ var pm2 = require('../config/pm2');
 
 var notify = require('./notify');
 
-function sendNotification(e, d) {
-	var eventType = e;
-	var eventName = d.event ? d.event : '';
-	notify('[' + d.process.name + ']: ' + eventType + ' ' + eventName);
+function sendNotification(type, data) {
+	var msg = {
+		type: type,
+		data: data
+	};
+
+	notify(msg);
 }
 
 function start() {
 	sub.connect(pm2.pubSocket);
-	sub.on('*', sendNotification);
+	sub.on('process:*', sendNotification);
 }
 
 start();
