@@ -15,8 +15,20 @@ function restart() {
 	});
 }
 
+function status() {
+	var pid = daemon.status();
+	var statusString;
+	if (pid) {
+		statusString = daemonOpts.name + ' daemon is running, PID: ' + pid;
+	} else {
+		statusString = daemonOpts.name + ' daemon is not running';
+	}
+	console.log(statusString);
+}
+
 module.exports = {
 	start: start,
 	stop: stop,
-	restart: restart
+	restart: restart,
+	status: status
 };

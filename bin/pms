@@ -20,6 +20,11 @@ program
 	.description('restart daemon')
 	.action(actions.restart);
 
+program
+	.command('status')
+	.description('display daemon status')
+	.action(actions.status);
+
 // if command was not found
 program.on('*', program.help);
 
