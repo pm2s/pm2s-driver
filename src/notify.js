@@ -1,15 +1,15 @@
 var _ = require('lodash');
 var http = require('http');
 
-var serverConfig = require('../config/server');
+var httpConfig = require('../config/http');
 var log = require('./utils/log');
 
 function notify(msg) {
 	var data = JSON.stringify({ data: msg });
 
-	var reqOptions = _.extend({}, serverConfig, {
+	var reqOptions = _.extend({}, httpConfig, {
 		headers: {
-			'Content-Type': 'application/application/json',
+			'Content-Type': 'application/json',
 			'Content-Length': data.length
 		}
 	});
