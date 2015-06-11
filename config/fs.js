@@ -5,11 +5,13 @@ var name = 'pms';
 var dirname = '.pms';
 var rootPath;
 var logPath;
+var configPath;
 
 var homePath = process.env.HOME || process.env.HOMEPATH;
 
 rootPath = homePath ? p.resolve(homePath, dirname) : p.resolve('/etc', dirname);
 logPath = p.resolve(rootPath, name + '.log');
+configPath = p.resolve(rootPath, 'conf.js');
 
 // TODO: move to right place?
 if (rootPath && !fs.existsSync(rootPath)) {
@@ -23,5 +25,6 @@ if (rootPath && !fs.existsSync(rootPath)) {
 module.exports = {
 	name: name,
 	rootPath: rootPath,
-	logPath: logPath
+	logPath: logPath,
+	configPath: configPath
 };

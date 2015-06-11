@@ -26,9 +26,14 @@ function status() {
 	console.log(statusString);
 }
 
+function config() {
+	console.log(arguments);
+}
+
 module.exports = {
 	start: start,
 	stop: stop,
 	restart: restart,
-	status: status
+	status: status,
+	config: config
 };

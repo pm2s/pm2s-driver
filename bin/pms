@@ -25,6 +25,11 @@ program
 	.description('display daemon status')
 	.action(actions.status);
 
+program
+	.command('config [key] [value]')
+	.description('get/set value for key')
+	.action(actions.config);
+
 // if command was not found
 program.on('*', program.help);
 
