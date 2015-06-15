@@ -1,5 +1,5 @@
 var p = require('path');
-var fs = require('fs');
+var fs = require('fs-extra');
 
 var name = 'pms';
 var dirname = '.pms';
@@ -13,14 +13,7 @@ rootPath = homePath ? p.resolve(homePath, dirname) : p.resolve('/etc', dirname);
 logPath = p.resolve(rootPath, name + '.log');
 configPath = p.resolve(rootPath, 'conf.js');
 
-// TODO: move to right place?
-if (rootPath && !fs.existsSync(rootPath)) {
-	try {
-		fs.mkdirSync(rootPath);
-	} catch(e) {
-		// TODO: do something here
-	}
-}
+fs.ensureDirSync(rootPath);
 
 module.exports = {
 	name: name,
